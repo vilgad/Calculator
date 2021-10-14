@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="tv_clear_text">C</string>
+    <string name="bt_erase_text">E</string>
+    <string name="bt_percentage_text">%</string>
+    <string name="bt_plus_text">+</string>
+    <string name="bt_seven_text">7</string>
+    <string name="bt_six_text">6</string>
+    <string name="bt_eight_text">8</string>
+    <string name="bt_nine_text">9</string>
+    <string name="bt_minus_text">-</string>
+    <string name="bt_four_text">4</string>
+    <string name="bt_five_text">5</string>
+    <string name="bt_divide_text">/</string>
+    <string name="bt_one_text">1</string>
+    <string name="bt_two_text">2</string>
+    <string name="bt_three_text">3</string>
+    <string name="bt_multiply_text">x</string>
+    <string name="bt_decimal_text">.</string>
+    <string name="bt_equals_text">=</string>
+    <string name="bt_zero_text">0</string>
+    <string name="tv_result_text" />
+    <string name="tv_expression_text" />
+    <string name="bt_history_cd">history button</string>
+    <string name="tv_history">32 + 5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bt_close_cd">close button</string>
+</resources>
