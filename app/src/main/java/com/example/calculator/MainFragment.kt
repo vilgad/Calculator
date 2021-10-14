@@ -1,14 +1,14 @@
 package com.example.calculator
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.calculator.databinding.FragmentMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -50,14 +50,26 @@ class MainFragment : Fragment() {
             btTwo.setOnClickListener { appendOnClick(true, "2") }
             btOne.setOnClickListener { appendOnClick(true, "1") }
             btZero.setOnClickListener { appendOnClick(true, "0") }
+
+            setHasOptionsMenu(true)     // to enable menu in this fragment
+
+            (activity as MainActivity).supportActionBar?.title = "Calculator"
         }
 
-        binding.btHistory.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToHistoryFragment(his)
-            )
-        }
         return binding.root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Functionality
+
+        // Navigate to History Fragment
+        return NavigationUI.onNavDestinationSelected(item,
+            requireView().findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
     }
 
     private fun appendOnClick(clear: Boolean, string: String) {

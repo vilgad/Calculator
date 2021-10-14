@@ -19,11 +19,8 @@ class HistoryFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_history, container, false)
 
         val args = HistoryFragmentArgs.fromBundle(requireArguments())
-        binding.historyFragTvHistory.text = "${args.history}"
 
-        binding.historyFragBtClose.setOnClickListener {
-            findNavController().navigate(R.id.action_historyFragment_to_mainFragment)
-        }
+        (activity as MainActivity).supportActionBar?.title = "History"  // To change the Toolbar title in History fragment
 
         return binding.root
     }
