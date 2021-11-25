@@ -3,280 +3,282 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/black">
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:menu = "@menu/overflow_menu">
 
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_decimal"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/bt_decimal_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_zero"
-                            app:layout_constraintStart_toStartOf="@+id/bt_one"
-                            app:layout_constraintTop_toTopOf="@+id/bt_zero" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_decimal"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/bt_decimal_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_zero"
+                app:layout_constraintStart_toStartOf="@+id/bt_one"
+                app:layout_constraintTop_toTopOf="@+id/bt_zero" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_clear"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/tv_clear_text"
-                            android:textColor="@color/dodger_blue"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_seven"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_erase"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_expression"
-                            app:layout_constraintVertical_bias="1.0"
-                            app:layout_constraintVertical_chainStyle="packed" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_clear"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/tv_clear_text"
+                android:textColor="@color/dodger_blue"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/bt_seven"
+                app:layout_constraintEnd_toStartOf="@+id/bt_erase"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_expression"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_seven"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/bt_seven_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_four"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_eight"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/bt_clear" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_seven"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/bt_seven_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/bt_four"
+                app:layout_constraintEnd_toStartOf="@+id/bt_eight"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_clear" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_eight"
-                            style="@style/circle_button"
-                            android:text="@string/bt_eight_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_seven"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_nine"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_seven"
-                            app:layout_constraintTop_toTopOf="@+id/bt_seven"
-                            app:layout_constraintVertical_bias="0.0" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_eight"
+                style="@style/circle_button"
+                android:text="@string/bt_eight_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_seven"
+                app:layout_constraintEnd_toStartOf="@+id/bt_nine"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_seven"
+                app:layout_constraintTop_toTopOf="@+id/bt_seven"
+                app:layout_constraintVertical_bias="0.0" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_nine"
-                            style="@style/circle_button"
-                            android:text="@string/bt_nine_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_eight"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_multiply"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_eight"
-                            app:layout_constraintTop_toTopOf="@+id/bt_eight"
-                            app:layout_constraintVertical_bias="0.0" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_nine"
+                style="@style/circle_button"
+                android:text="@string/bt_nine_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_eight"
+                app:layout_constraintEnd_toStartOf="@+id/bt_multiply"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_eight"
+                app:layout_constraintTop_toTopOf="@+id/bt_eight"
+                app:layout_constraintVertical_bias="0.0" />
 
-                        <ImageButton
-                            android:id="@+id/bt_multiply"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:contentDescription="@string/bt_multiply_text"
-                            android:src="@mipmap/ic_multiply"
-                            android:text="@string/bt_multiply_text"
-                            android:textColor="@color/dodger_blue"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_nine"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_nine"
-                            app:layout_constraintTop_toTopOf="@+id/bt_nine"
-                            app:layout_constraintVertical_bias="0.0" />
+            <ImageButton
+                android:id="@+id/bt_multiply"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:contentDescription="@string/bt_multiply_text"
+                android:src="@mipmap/ic_multiply"
+                android:text="@string/bt_multiply_text"
+                android:textColor="@color/dodger_blue"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_nine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_nine"
+                app:layout_constraintTop_toTopOf="@+id/bt_nine"
+                app:layout_constraintVertical_bias="0.0" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_four"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/bt_four_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_one"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_five"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/bt_seven" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_four"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/bt_four_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/bt_one"
+                app:layout_constraintEnd_toStartOf="@+id/bt_five"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_seven" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_one"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/bt_one_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_decimal"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_two"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/bt_four" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_one"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/bt_one_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/bt_decimal"
+                app:layout_constraintEnd_toStartOf="@+id/bt_two"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_four" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_zero"
-                            style="@style/circle_button"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/bt_zero_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_equals"
-                            app:layout_constraintStart_toStartOf="@+id/bt_two"
-                            app:layout_constraintTop_toTopOf="@+id/bt_equals" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_zero"
+                style="@style/circle_button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/bt_zero_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_equals"
+                app:layout_constraintStart_toStartOf="@+id/bt_two"
+                app:layout_constraintTop_toTopOf="@+id/bt_equals" />
 
-                        <ImageButton
-                            android:id="@+id/bt_erase"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@color/black"
-                            android:contentDescription="@string/bt_erase_text"
-                            android:src="@drawable/ic_baseline_chevron_left_24"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_clear"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_percentage"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_clear"
-                            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
+            <ImageButton
+                android:id="@+id/bt_erase"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/black"
+                android:contentDescription="@string/bt_erase_text"
+                android:src="@drawable/ic_baseline_chevron_left_24"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_clear"
+                app:layout_constraintEnd_toStartOf="@+id/bt_percentage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_clear"
+                app:layout_constraintTop_toTopOf="@+id/bt_clear" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_five"
-                            style="@style/circle_button"
-                            android:text="@string/bt_five_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_four"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_six"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_four"
-                            app:layout_constraintTop_toTopOf="@+id/bt_four" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_five"
+                style="@style/circle_button"
+                android:text="@string/bt_five_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_four"
+                app:layout_constraintEnd_toStartOf="@+id/bt_six"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_four"
+                app:layout_constraintTop_toTopOf="@+id/bt_four" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_two"
-                            style="@style/circle_button"
-                            android:text="@string/bt_two_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_one"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_three"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_one"
-                            app:layout_constraintTop_toTopOf="@+id/bt_one" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_two"
+                style="@style/circle_button"
+                android:text="@string/bt_two_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_one"
+                app:layout_constraintEnd_toStartOf="@+id/bt_three"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_one"
+                app:layout_constraintTop_toTopOf="@+id/bt_one" />
 
-                        <ImageButton
-                            android:id="@+id/bt_percentage"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:contentDescription="@string/bt_percentage_text"
-                            android:src="@mipmap/ic_percentage1"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_erase"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_divide"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_erase"
-                            app:layout_constraintTop_toTopOf="@+id/bt_erase" />
+            <ImageButton
+                android:id="@+id/bt_percentage"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:contentDescription="@string/bt_percentage_text"
+                android:src="@mipmap/ic_percentage1"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_erase"
+                app:layout_constraintEnd_toStartOf="@+id/bt_divide"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_erase"
+                app:layout_constraintTop_toTopOf="@+id/bt_erase" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_three"
-                            style="@style/circle_button"
-                            android:text="@string/bt_three_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_two"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_plus"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_two"
-                            app:layout_constraintTop_toTopOf="@+id/bt_two" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_three"
+                style="@style/circle_button"
+                android:text="@string/bt_three_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_two"
+                app:layout_constraintEnd_toStartOf="@+id/bt_plus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_two"
+                app:layout_constraintTop_toTopOf="@+id/bt_two" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_six"
-                            style="@style/circle_button"
-                            android:text="@string/bt_six_text"
-                            android:textColor="@color/white"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_five"
-                            app:layout_constraintEnd_toStartOf="@+id/bt_minus"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_five"
-                            app:layout_constraintTop_toTopOf="@+id/bt_five" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_six"
+                style="@style/circle_button"
+                android:text="@string/bt_six_text"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_five"
+                app:layout_constraintEnd_toStartOf="@+id/bt_minus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_five"
+                app:layout_constraintTop_toTopOf="@+id/bt_five" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_plus"
-                            style="@style/circle_button"
-                            android:text="@string/bt_plus_text"
-                            android:textColor="@color/dodger_blue"
-                            android:textSize="30sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_three"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_three"
-                            app:layout_constraintTop_toTopOf="@+id/bt_three" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_plus"
+                style="@style/circle_button"
+                android:text="@string/bt_plus_text"
+                android:textColor="@color/dodger_blue"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_three"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_three"
+                app:layout_constraintTop_toTopOf="@+id/bt_three" />
 
-                        <Button
-                            android:id="@+id/bt_equals"
-                            android:layout_width="145dp"
-                            android:layout_height="58dp"
-                            android:backgroundTint="@color/dodger_blue"
-                            android:fontFamily="@font/ubuntu_medium"
-                            android:text="@string/bt_equals_text"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            app:cornerRadius="50dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/bt_plus"
-                            app:layout_constraintTop_toBottomOf="@+id/bt_plus" />
+            <Button
+                android:id="@+id/bt_equals"
+                android:layout_width="145dp"
+                android:layout_height="58dp"
+                android:backgroundTint="@color/dodger_blue"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@string/bt_equals_text"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:cornerRadius="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/bt_plus"
+                app:layout_constraintTop_toBottomOf="@+id/bt_plus" />
 
-                        <ImageButton
-                            android:id="@+id/bt_divide"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:contentDescription="@string/bt_divide_text"
-                            android:src="@mipmap/ic_division"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_percentage"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/bt_percentage"
-                            app:layout_constraintTop_toTopOf="@+id/bt_percentage" />
+            <ImageButton
+                android:id="@+id/bt_divide"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:contentDescription="@string/bt_divide_text"
+                android:src="@mipmap/ic_division"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_percentage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bt_percentage"
+                app:layout_constraintTop_toTopOf="@+id/bt_percentage" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/bt_minus"
-                            style="@style/circle_button"
-                            android:text="@string/bt_minus_text"
-                            android:textColor="@color/dodger_blue"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/bt_six"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/bt_six"
-                            app:layout_constraintTop_toTopOf="@+id/bt_six" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_minus"
+                style="@style/circle_button"
+                android:text="@string/bt_minus_text"
+                android:textColor="@color/dodger_blue"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_six"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bt_six"
+                app:layout_constraintTop_toTopOf="@+id/bt_six" />
 
-                        <TextView
-                            android:id="@+id/tv_expression"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="15dp"
-                            android:fontFamily="@font/andika"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:text="@string/tv_expression_text"
-                            android:textAlignment="viewEnd"
-                            android:textColor="@color/white"
-                            android:textSize="45sp"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_erase"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.65"
-                            tools:text="32+5" />
+            <TextView
+                android:id="@+id/tv_expression"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="sans-serif"
+                android:hint="0"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/tv_expression_text"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textSize="45sp"
+                app:layout_constraintBottom_toTopOf="@+id/bt_erase"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.65"
+                tools:text="32+5" />
 
-                        <TextView
-                            android:id="@+id/tv_result"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/andika"
-                            android:text="@string/tv_result_text"
-                            android:textColor="@color/grey"
-                            android:textSize="35sp"
-                            app:layout_constraintBottom_toTopOf="@+id/bt_divide"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.89"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_expression"
-                            tools:text="37" />
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/tv_result_text"
+                android:textColor="@color/grey"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toTopOf="@+id/bt_divide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.89"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_expression"
+                tools:text="37" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
