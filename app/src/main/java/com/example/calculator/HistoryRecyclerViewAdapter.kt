@@ -1,6 +1,5 @@
 package com.example.calculator
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,9 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.calculator.databinding.HistoryViewBinding
 
 class HistoryRecyclerViewAdapter(
-    private val expression: String,
-    private val result: String,
-    private val count: Int
+    private val expression: Array<String>,
+    private val result: Array<String>
 ) : RecyclerView.Adapter<HistoryRecyclerViewAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,13 +23,13 @@ class HistoryRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         with(holder) {
-            binding.tvHistoryExpression.text = expression
-            binding.tvHistoryResult.text = result
+            binding.tvHistoryExpression.text = expression[position]
+            binding.tvHistoryResult.text = "= " + result[position]
         }
     }
 
     override fun getItemCount(): Int {
-        return count
+        return expression.size
     }
 
     class MyViewHolder(val binding: HistoryViewBinding) : RecyclerView.ViewHolder(binding.root) {

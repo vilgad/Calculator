@@ -14,7 +14,6 @@
             android:background="@color/black"
             app:menu = "@menu/overflow_menu">
 
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_decimal"
                 style="@style/circle_button"

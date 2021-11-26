@@ -10,21 +10,12 @@
         android:name="com.example.calculator.HistoryFragment"
         android:label="HistoryFragment"
         tools:layout = "@layout/fragment_history">
-        <action
-            android:id="@+id/action_historyFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
         <argument
             android:name="expression"
-            app:argType="string"
-            android:defaultValue="0" />
+            app:argType="string[]" />
         <argument
             android:name="result"
-            app:argType="string"
-            android:defaultValue="= 0" />
-        <argument
-            android:name="counts"
-            app:argType="integer"
-            android:defaultValue="0" />
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"

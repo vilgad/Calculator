@@ -5,13 +5,12 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.calculator.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
-    private var number = 0
+    private var expHistory = mutableListOf<String>()
+    private var resHistory = mutableListOf<String>()
     private lateinit var binding: FragmentMainBinding
     private lateinit var calcViewModel: CalcViewModel
 
@@ -30,17 +29,21 @@ class MainFragment : Fragment() {
             binding.tvExpression.text = it
         })
         calcViewModel.resultLiveData.observe(requireActivity(), {
-            binding.tvResult.text = it
+            binding.tvResult.text = "= " + it
         })
 
         binding.apply {
-            btClear.setOnClickListener { calcViewModel.clear() }
+            btClear.setOnClickListener {
+                expHistory.clear()
+                resHistory.clear()
+                calcViewModel.clear()
+            }
             btErase.setOnClickListener { calcViewModel.erase() }
 
             btDivide.setOnClickListener { calcViewModel.appendOnClick(false, "/") }
             btEquals.setOnClickListener {
+                updateHistory()
                 calcViewModel.equal()
-                number++
             }
             btMinus.setOnClickListener { calcViewModel.appendOnClick(false, "-") }
             btMultiply.setOnClickListener { calcViewModel.appendOnClick(false, "*") }
@@ -67,80 +70,24 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    private fun updateHistory() {
+        expHistory.add(calcViewModel.expressionLiveData.value.toString())
+        resHistory.add(calcViewModel.resultLiveData.value.toString())
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Functionality
         findNavController().navigate(
             MainFragmentDirections.actionMainFragmentToHistoryFragment(
-                calcViewModel.expressionLiveData.toString(),
-                calcViewModel.resultLiveData.toString(),
-                number
+                expHistory.toTypedArray(), resHistory.toTypedArray()
             )
         )
         // Navigate to History Fragment
-        return NavigationUI.onNavDestinationSelected(
-            item,
-            requireView().findNavController()
-        )
-                || super.onOptionsItemSelected(item)
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.overflow_menu, menu)
     }
-
-//    private fun appendOnClick(clear: Boolean, string: String) {
-//            if (clear) {
-//                calcViewModel.result = ""
-//                calcViewModel.expression = calcViewModel.expression + string
-//                updateUI()
-//            } else {
-//                //tvExpression.append(tvResult.text)
-//                calcViewModel.expression = calcViewModel.expression + string
-//                calcViewModel.result = ""
-//                updateUI()
-//            }
-//        calculate()
-//    }
-
-//    private fun clear() {
-//        calcViewModel.result = ""
-//        calcViewModel.expression = ""
-//        updateUI()
-//    }
-
-//    private fun calculate() {
-//        try {
-//            val input = ExpressionBuilder(calcViewModel.expression).build()
-//            val output = input.evaluate()
-//            val longOutput = output.toLong()
-//
-//            if (output == longOutput.toDouble()) {
-//                calcViewModel.result = longOutput.toString()
-//            } else {
-//                calcViewModel.result = output.toString()
-//            }
-//            updateHistory()
-//            updateUI()
-//        } catch (e: Exception) {
-//        }
-//    }
-//
-//    private fun equal() {
-//        calcViewModel.expression = calcViewModel.result
-//        calcViewModel.result = ""
-//        updateUI()
-//    }
-//
-//    private fun erase() {
-//        val str = calcViewModel.expression
-//        calcViewModel.expression = str.dropLast(1)
-//        updateUI()
-//        calculate()
-//    }
-
-//    private fun updateUI() {
-//        binding.tvExpression.text = calcViewModel.expression
-//        binding.tvResult.text = calcViewModel.result
-//    }
 }

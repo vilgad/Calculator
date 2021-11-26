@@ -26,8 +26,7 @@ class HistoryFragment : Fragment() {
         val linearLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(requireContext())
         binding.myRecyclerView.layoutManager = linearLayoutManager
 
-        binding.myRecyclerView.adapter = HistoryRecyclerViewAdapter(args.expression,args.result,args.counts)
-        findNavController().navigate(HistoryFragmentDirections.actionHistoryFragmentToMainFragment())
+        binding.myRecyclerView.adapter = HistoryRecyclerViewAdapter(args.expression,args.result)
 
         (activity as MainActivity).supportActionBar?.title = "History"  // To change the Toolbar title in History fragment
 
