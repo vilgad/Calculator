@@ -6,10 +6,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.calculator.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
+    private var number = 0
     private lateinit var binding: FragmentMainBinding
     private lateinit var calcViewModel: CalcViewModel
 
@@ -36,7 +38,10 @@ class MainFragment : Fragment() {
             btErase.setOnClickListener { calcViewModel.erase() }
 
             btDivide.setOnClickListener { calcViewModel.appendOnClick(false, "/") }
-            btEquals.setOnClickListener { calcViewModel.equal() }
+            btEquals.setOnClickListener {
+                calcViewModel.equal()
+                number++
+            }
             btMinus.setOnClickListener { calcViewModel.appendOnClick(false, "-") }
             btMultiply.setOnClickListener { calcViewModel.appendOnClick(false, "*") }
             btPlus.setOnClickListener { calcViewModel.appendOnClick(false, "+") }
@@ -64,12 +69,21 @@ class MainFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Functionality
-
+        findNavController().navigate(
+            MainFragmentDirections.actionMainFragmentToHistoryFragment(
+                calcViewModel.expressionLiveData.toString(),
+                calcViewModel.resultLiveData.toString(),
+                number
+            )
+        )
         // Navigate to History Fragment
-        return NavigationUI.onNavDestinationSelected(item,
-            requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            requireView().findNavController()
+        )
                 || super.onOptionsItemSelected(item)
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.overflow_menu, menu)
