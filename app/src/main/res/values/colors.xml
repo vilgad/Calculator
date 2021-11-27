@@ -10,7 +10,7 @@
     <color name="a">#03a9f4</color>
     <color name="dodger_blue">#1E90FF</color>
     <color name="grey">#AEAFAF</color>
-    <color name="grey_dark">#272626</color>
+    <color name="grey_dark">#343437</color>
     <color name="tranparent">#0000ffff</color>
     <color name="red">#FF5252</color>
     <color name="green">#1DE9B6</color>
@@ -18,4 +18,6 @@
     <color name="gr">#302F2F</color>
     <color name="calc">#2D302F</color>
     <color name="calc2">#5D5F63</color>
+    <color name="anthracite">#393D47</color>
+    <color name="random">#28282B</color>
 </resources>

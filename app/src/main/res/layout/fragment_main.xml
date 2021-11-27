@@ -3,16 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:background="#3C4043"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_expression"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/tv_expression_text"
+            android:textColor="@color/white"
+            android:textSize="45sp"
+            tools:text="32+5" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:textColor="@color/grey"
+            android:textSize="35sp"
+            tools:text="= 37" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            app:menu = "@menu/overflow_menu">
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/rectangle"
+            app:menu="@menu/overflow_menu">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_decimal"
@@ -34,7 +67,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/bt_erase"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_expression"
+                app:layout_constraintTop_toTopOf="@id/constraint"
                 app:layout_constraintVertical_bias="1.0"
                 app:layout_constraintVertical_chainStyle="packed" />
 
@@ -76,9 +109,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_multiply"
+                style="@style/circle_button"
                 android:contentDescription="@string/bt_multiply_text"
                 android:text="×"
-                style="@style/circle_button"
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toBottomOf="@+id/bt_nine"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,8 +158,8 @@
                 android:id="@+id/bt_erase"
                 style="@style/circle_button"
                 android:text="←"
-                android:textStyle="bold"
                 android:textColor="@color/green"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/bt_clear"
                 app:layout_constraintEnd_toStartOf="@+id/bt_percentage"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -157,8 +190,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_percentage"
-                android:contentDescription="@string/bt_percentage_text"
                 style="@style/circle_button"
+                android:contentDescription="@string/bt_percentage_text"
                 android:text="%"
                 android:textColor="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/bt_erase"
@@ -216,10 +249,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_divide"
+                style="@style/circle_button"
                 android:contentDescription="@string/bt_divide_text"
                 android:text="÷"
                 android:textColor="@color/red"
-                style="@style/circle_button"
                 app:layout_constraintBottom_toBottomOf="@+id/bt_percentage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bt_percentage"
@@ -236,42 +269,6 @@
                 app:layout_constraintStart_toEndOf="@+id/bt_six"
                 app:layout_constraintTop_toTopOf="@+id/bt_six" />
 
-            <TextView
-                android:id="@+id/tv_expression"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.8"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center_vertical|end"
-                android:maxLines="1"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/tv_expression_text"
-                android:textColor="@color/white"
-                android:textSize="45sp"
-                app:layout_constraintBottom_toTopOf="@+id/bt_erase"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="32+5" />
-
-            <TextView
-                android:id="@+id/tv_result"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.8"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center_vertical|end"
-                android:maxLines="1"
-                android:padding="20dp"
-                android:textColor="@color/grey"
-                android:textSize="35sp"
-                app:layout_constraintBottom_toTopOf="@+id/bt_divide"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_expression"
-                tools:text="37" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </LinearLayout>
 </layout>
