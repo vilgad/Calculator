@@ -1,6 +1,8 @@
 package com.example.calculator
 
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -61,6 +63,14 @@ class MainFragment : Fragment() {
             btTwo.setOnClickListener { calcViewModel.appendOnClick(true, "2") }
             btOne.setOnClickListener { calcViewModel.appendOnClick(true, "1") }
             btZero.setOnClickListener { calcViewModel.appendOnClick(true, "0") }
+            btExpand.setOnClickListener {
+                if (binding.cvConstraint.visibility == View.GONE) {
+                    TransitionManager.beginDelayedTransition(binding.cvMain, AutoTransition())
+                    binding.cvConstraint.visibility = View.VISIBLE
+                } else {
+                    binding.cvConstraint.visibility = View.GONE
+                }
+            }
 
             setHasOptionsMenu(true)     // to enable menu in this fragment
 

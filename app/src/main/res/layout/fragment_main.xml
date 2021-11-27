@@ -39,6 +39,8 @@
             android:textSize="35sp"
             tools:text="= 37" />
 
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint"
             android:layout_width="match_parent"
@@ -47,6 +49,78 @@
             android:background="@drawable/rectangle"
             app:menu="@menu/overflow_menu">
 
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/random"
+                android:id="@+id/cv_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cv_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_sin"
+                        style="@style/circle_button"
+                        android:text="sin"
+                        android:textAllCaps="false"
+                        android:textColor="@color/green"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/bt_cos"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_cos"
+                        style="@style/circle_button"
+                        android:text="cos"
+                        android:textAllCaps="false"
+                        android:textColor="@color/green"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/bt_sin"
+                        app:layout_constraintEnd_toStartOf="@+id/bt_square_root"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/bt_sin"
+                        app:layout_constraintTop_toTopOf="@+id/bt_sin" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_square_root"
+                        style="@style/circle_button"
+                        android:text="√ "
+                        android:textAllCaps="false"
+                        android:textColor="@color/green"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/bt_cos"
+                        app:layout_constraintEnd_toStartOf="@+id/bt_power"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/bt_cos"
+                        app:layout_constraintTop_toTopOf="@+id/bt_cos" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_power"
+                        style="@style/circle_button"
+                        android:text=" x²"
+                        android:textAllCaps="false"
+                        android:textColor="@color/green"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/bt_square_root"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/bt_square_root"
+                        app:layout_constraintTop_toTopOf="@+id/bt_square_root" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_decimal"
                 style="@style/circle_button"
@@ -67,7 +141,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/bt_erase"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/constraint"
+                app:layout_constraintTop_toTopOf="@id/cv_main"
                 app:layout_constraintVertical_bias="1.0"
                 app:layout_constraintVertical_chainStyle="packed" />
 
@@ -235,8 +309,8 @@
 
             <Button
                 android:id="@+id/bt_equals"
-                android:layout_width="145dp"
-                android:layout_height="58dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:backgroundTint="@color/grey_dark"
                 android:fontFamily="@font/ubuntu_medium"
                 android:text="@string/bt_equals_text"
@@ -246,6 +320,23 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/bt_plus"
                 app:layout_constraintTop_toBottomOf="@+id/bt_plus" />
+
+            <Button
+                android:id="@+id/bt_expand"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/grey_dark"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="⟳"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/light_white"
+                app:cornerRadius="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/bt_three"
+                app:layout_constraintStart_toStartOf="@+id/bt_three"
+                app:layout_constraintTop_toBottomOf="@+id/bt_three"
+                app:layout_constraintVertical_bias="0.53" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_divide"
